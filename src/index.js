@@ -3,11 +3,36 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Input from './components/Input/Input';
+import Button from './components/Button/Button';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const routes = [
+  { path: 'input', element: <Input /> },
+  { path: 'button', element: <Button /> },
+];
+
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          {routes.map((props, index) => (
+            <Route key={index} {...props} />
+          ))}
+        </Route>
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: '1rem' }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
