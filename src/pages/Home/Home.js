@@ -29,25 +29,23 @@ const Home = () => {
       <Grid container spacing={2}>
         <Grid item lg={2}>
           <Box sx={{ width: '100%' }}>
-            <nav aria-label="menu">
-              <List>
-                <ListSubheader>Components</ListSubheader>
-                {components.map((component, index) => (
-                  <>
-                    <ListItem key={index} disablePadding>
-                      <ListItemButton
-                        onClick={() =>
-                          handleNavigateToComponentPage(component.name)
-                        }
-                      >
-                        <ListItemText primary={component.label} />
-                      </ListItemButton>
-                    </ListItem>
-                    <Divider variant="full" component="li" />
-                  </>
-                ))}
-              </List>
-            </nav>
+            <List>
+              <ListSubheader>Components</ListSubheader>
+              {components.map((component, index) => (
+                <Box key={index}>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      onClick={() =>
+                        handleNavigateToComponentPage(component.name)
+                      }
+                    >
+                      <ListItemText primary={component.label} />
+                    </ListItemButton>
+                  </ListItem>
+                  <Divider variant="full" component="li" />
+                </Box>
+              ))}
+            </List>
           </Box>
         </Grid>
         <Grid item lg={10}>

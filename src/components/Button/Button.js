@@ -1,7 +1,8 @@
 import React from 'react';
+import Layout from '../Layout/Layout';
 
 const Button = () => {
-  return <div>Button</div>;
+  return <Layout>Button</Layout>;
 };
 
 export default Button;
