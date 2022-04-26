@@ -1,4 +1,4 @@
-import { Grid, TextField } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import React from 'react';
 import Layout from '../Layout/Layout';
 import { useFormik } from 'formik';
@@ -18,10 +18,9 @@ const Input = () => {
   return (
     <Layout>
       <form onSubmit={formik.handleSubmit}>
-        <Grid container>
+        <Grid container direction="column" spacing={2}>
           <Grid item>
             <TextField
-              fullWidth
               id="username"
               name="username"
               label="Username"
@@ -30,6 +29,9 @@ const Input = () => {
               error={formik.touched.username && Boolean(formik.errors.username)}
               helperText={formik.touched.username && formik.errors.username}
             />
+          </Grid>
+          <Grid item>
+            <Button type="submit">Submit</Button>
           </Grid>
         </Grid>
       </form>

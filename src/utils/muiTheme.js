@@ -10,5 +10,12 @@ export const muiTheme = responsiveFontSizes(
         main: '#edf2ff',
       },
     },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          variant: 'contained',
+        },
+      },
+    },
   })
 );
